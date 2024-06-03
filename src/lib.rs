@@ -7,6 +7,8 @@
 //! everyting seen here, is a reverse engineer project of that framework.
 
 use bevy::prelude::*;
+#[cfg(feature = "dev")]
+mod dev;
 mod menu;
 mod ingame_menu;
 mod player_control;
@@ -27,6 +29,7 @@ enum GameState {
 ///
 /// The top-level plugins are:
 /// - [`menu::plugin`]: Handles the menu.
+/// - [`dev::plugin`]: Handles the dev tools.
 /// - [`ingame_menu::plugin`]: Handles the ingame menu acces via ESC.
 
 pub struct GamePlugin;
@@ -36,6 +39,8 @@ impl Plugin for GamePlugin {
         app.init_state::<GameState>().add_plugins((
             menu::plugin,
             ingame_menu::plugin,
+            #[cfg(feature = "dev")]
+            dev::plugin,
         ));
     }
 }
