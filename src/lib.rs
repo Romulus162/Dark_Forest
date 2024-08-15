@@ -1,5 +1,7 @@
-// #![allow(clippy::too_many_arguments, clippy::type_complexity)]
-// #![allow(rustdoc::private_intra_doc_links)]
+// These two generate a lot of false positives for Bevy systems
+#![allow(clippy::too_many_arguments, clippy::type_complexity)]
+// This is not a library, so we don't need to worry about intra-doc links
+#![allow(rustdoc::private_intra_doc_links)]
 
 
 //! Dark Forest is split into many plugins with their own set of responsibilities.
@@ -10,10 +12,16 @@ use bevy::prelude::*;
 mod bevy_config;
 #[cfg(feature = "dev")]
 mod dev;
+mod file_system_interaction;
 mod ingame_menu;
+mod level_instantiation;
 mod menu;
+pub(crate) mod movement;
+pub(crate) mod particles;
 mod player_control;
+mod shader;
 pub(crate) mod util;
+mod world_interaction;
 
 #[derive(States, Default, Clone, Eq, PartialEq, Debug, Hash)]
 
@@ -30,10 +38,17 @@ enum GameState {
 /// Main entrypoint for dark_forest
 ///
 /// The top-level plugins are:
+/// - [`bevy_config::plugin`]: Sets up the bevy configuration.
 /// - [`menu::plugin`]: Handles the menu.
+/// - [`movement::plugin`]: Handles the movement of entities.
 /// - [`player_control::plugin`]: Handles the player's control.
+/// - [`world_interaction::plugin`]: Handles the interaction of entities with the world.
+/// - [`level_instantiation::plugin`]: Handles the creation of levels and objects.
+/// - [`file_system_interaction::plugin`]: Handles the loading and saving of games.
+/// - [`shader::plugin`]: Handles the shaders.
 /// - [`dev::plugin`]: Handles the dev tools.
-/// - [`ingame_menu::plugin`]: Handles the ingame menu acces via ESC.
+/// - [`ingame_menu::plugin`]: Handles the ingame menu accessed via ESC.
+/// - [`particles::plugin`]: Handles the particle system.
 
 pub struct GamePlugin;
 
@@ -42,8 +57,14 @@ impl Plugin for GamePlugin {
         app.init_state::<GameState>().add_plugins((
             bevy_config::plugin,
             menu::plugin,
+            movement::plugin,
             player_control::plugin,
+            world_interaction::plugin,
+            level_instantiation::plugin,
+            file_system_interaction::plugin,
+            shader::plugin,
             ingame_menu::plugin,
+            particles::plugin,
             #[cfg(feature = "dev")]
             dev::plugin,
         ));
