@@ -13,8 +13,7 @@ use bevy_egui::{
 /// This plugin is responsible for the game menu
 /// The menu is only drawn during the State `GameState::Menu` and is removed when that state is exited.
 pub(super) fn plugin(app: &mut App){
-    app.add_systems(Update,
-    setup_menu.run_if(in_state(GameState::Menu)));
+    app.add_systems(Update, setup_menu.run_if(in_state(GameState::Menu)));
 }
 
 fn setup_menu(mut egui_contexts: EguiContexts, mut next_state: ResMut<NextState<GameState>>) {
@@ -44,6 +43,7 @@ fn set_menu_style(style: &mut egui::Style) {
         (Heading, FontId::new(30., Proportional)),
         (Body, FontId::new(20., Proportional)),
         (Button, FontId::new(20., Proportional)),
-    ].into();
-    style.visuals.widgets.noninteractive.fg_stroke.color = egui::Color32::from_gray(250)
+    ]
+    .into();
+    style.visuals.widgets.noninteractive.fg_stroke.color = egui::Color32::from_gray(250);
 }

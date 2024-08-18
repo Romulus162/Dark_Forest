@@ -14,7 +14,6 @@ image = { version = "0.24", default-features = false }
 
 bevy = "0.13.2"
 bevy_egui = "0.27.0"
-leafwing-input-manager = { version = "0.13.3", features = ["egui"] }
 
 #generic dependency
 serde = { version = "1.0.203", features = ["derive"] }
@@ -26,7 +25,14 @@ bevy_mod_sysfail = "7.0.0"
 bevy_editor_pls = { version = "0.8.1", optional = true }
 bevy_yarnspinner_example_dialogue_view = "0.3.0"
 bevy_yarnspinner = "0.3.1"
+leafwing-input-manager = { version = "0.13.3", features = ["egui"] }
 bevy_dolly = "0.0.4"
+bevy-tnua = "0.19.0"
+bevy_hanabi = "0.12.2"
+bevy_asset_loader = "0.21.0"
+bevy_common_assets = { version = "0.11.0", features = ["ron", "toml"] }
+bevy_kira_audio = "0.20.0"
+iyes_progress = "0.12.0"
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]
