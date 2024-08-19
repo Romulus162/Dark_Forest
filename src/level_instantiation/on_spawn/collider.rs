@@ -1,10 +1,11 @@
 use crate::util::error;
 use crate::{movement::physics::CollisionLayer, GameSystemSet};
 use anyhow::Context;
-use bevy::{prelude::*, transform::TransformSystem::TransformPropagate};
+use bevy::prelude::*;
 use bevy_xpbd_3d::prelude::{Collider as XpbdCollider, *};
 use oxidized_navigation::NavMeshAffector;
 use serde::{Deserialize, Serialize};
+use std::iter;
 
 #[derive(Debug, Clone, Eq, PartialEq, Component, Reflect, Serialize, Deserialize, Default)]
 #[reflect(Component, Serialize, Deserialize)]

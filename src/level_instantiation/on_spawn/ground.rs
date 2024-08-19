@@ -14,7 +14,7 @@ pub(super) fn plugin(app: &mut App) {
 fn spawn(
     sun: Query<&Children, Added<Ground>>,
     material_handles: Query<&Handle<StandardMaterial>>,
-    mut materials: ResMut<Assets<standardMaterial>>,
+    mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
     for children in sun.iter() {
         for child in children.iter() {
