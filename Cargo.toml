@@ -45,11 +45,11 @@ bevy_dolly = "0.0.4"
 bevy-tnua-xpbd3d = "0.2"
 bevy-tnua = "0.19.0"
 bevy_hanabi = "0.12.2"
-bevy_asset_loader = "0.21.0"
+bevy_asset_loader = { version = "0.21.0", features = ["progress_tracking", "standard_dynamic_assets"] }
 bevy_common_assets = { version = "0.11.0", features = ["ron", "toml"] }
 bevy_kira_audio = "0.20.0"
 iyes_progress = "0.12.0"
-oxidized_navigation = "0.11.0"
+oxidized_navigation = { version = "0.10", features = ["xpbd"] }
 bevy_gltf_blueprints = "0.11.0"
 bevy_registry_export = "0.4.0"
 warbler_grass = "0.6.1"

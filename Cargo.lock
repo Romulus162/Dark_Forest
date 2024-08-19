@@ -718,7 +718,10 @@ dependencies = [
  "anyhow",
  "bevy 0.14.1",
  "bevy_asset_loader_derive",
+ "bevy_common_assets",
+ "iyes_progress",
  "path-slash",
+ "serde",
 ]
 
 [[package]]
@@ -993,7 +996,7 @@ dependencies = [
  "bevy_utils 0.13.2",
  "downcast-rs",
  "fixedbitset 0.4.2",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "serde",
  "thiserror",
  "thread_local",
@@ -1538,7 +1541,7 @@ checksum = "eb270c98a96243b29465139ed10bda2f675d00a11904f6588a5f7fc4774119c7"
 dependencies = [
  "proc-macro2",
  "quote",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "syn 2.0.75",
  "toml_edit 0.21.1",
 ]
@@ -2361,8 +2364,8 @@ dependencies = [
  "fxhash",
  "indexmap",
  "itertools 0.12.1",
- "nalgebra 0.32.6",
- "parry3d 0.13.8",
+ "nalgebra",
+ "parry3d",
  "parry3d-f64",
 ]
 
@@ -2418,7 +2421,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "regex",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "shlex",
  "syn 2.0.75",
 ]
@@ -4631,7 +4634,7 @@ dependencies = [
  "log",
  "num-traits",
  "pp-rs",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "spirv",
  "termcolor",
  "thiserror",
@@ -4653,7 +4656,7 @@ dependencies = [
  "log",
  "num-traits",
  "pp-rs",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "spirv",
  "termcolor",
  "thiserror",
@@ -4674,7 +4677,7 @@ dependencies = [
  "once_cell",
  "regex",
  "regex-syntax 0.8.4",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "thiserror",
  "tracing",
  "unicode-ident",
@@ -4694,7 +4697,7 @@ dependencies = [
  "once_cell",
  "regex",
  "regex-syntax 0.8.4",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "thiserror",
  "tracing",
  "unicode-ident",
@@ -4713,24 +4716,7 @@ dependencies = [
  "num-complex",
  "num-rational",
  "num-traits",
- "simba 0.8.1",
- "typenum",
-]
-
-[[package]]
-name = "nalgebra"
-version = "0.33.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c4b5f057b303842cf3262c27e465f4c303572e7f6b0648f60e16248ac3397f4"
-dependencies = [
- "approx",
- "glam 0.27.0",
- "matrixmultiply",
- "nalgebra-macros",
- "num-complex",
- "num-rational",
- "num-traits",
- "simba 0.9.0",
+ "simba",
  "typenum",
 ]
 
@@ -4895,16 +4881,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "num-bigint"
-version = "0.4.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a5e44f723f1133c9deac646763579fdb3ac745e418f2a7af9cd0c431da1f20b9"
-dependencies = [
- "num-integer",
- "num-traits",
-]
-
-[[package]]
 name = "num-complex"
 version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4939,7 +4915,6 @@ version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f83d14da390562dca69fc84082e73e548e1ad308d24accdedd2720017cb37824"
 dependencies = [
- "num-bigint",
  "num-integer",
  "num-traits",
 ]
@@ -5298,15 +5273,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ordered-float"
-version = "4.2.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4a91171844676f8c7990ce64959210cd2eaef32c2612c50f9fae9f8aaa6065a6"
-dependencies = [
- "num-traits",
-]
-
-[[package]]
 name = "overload"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5323,14 +5289,14 @@ dependencies = [
 
 [[package]]
 name = "oxidized_navigation"
-version = "0.11.0"
+version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f980b130f493b1a65adad2deb28d1beec5ca31443f7e29e1c831bf13d0957aa2"
+checksum = "fd569fb138ea821ad58311677ef27efcd9f10cb02bf46242111e912e20e2cddb"
 dependencies = [
- "bevy 0.14.1",
- "cfg-if",
- "nalgebra 0.33.0",
- "parry3d 0.16.1",
+ "bevy 0.13.2",
+ "bevy_xpbd_3d",
+ "nalgebra",
+ "parry3d",
  "smallvec",
 ]
 
@@ -5399,39 +5365,15 @@ dependencies = [
  "bitflags 1.3.2",
  "downcast-rs",
  "either",
- "nalgebra 0.32.6",
+ "nalgebra",
  "num-derive",
  "num-traits",
  "rayon",
- "rustc-hash 1.1.0",
- "simba 0.8.1",
+ "rustc-hash",
+ "simba",
  "slab",
  "smallvec",
  "spade",
-]
-
-[[package]]
-name = "parry3d"
-version = "0.16.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ec1d9cc5a359352e2be7e47270cef9f9e175794c03302553353804a436228e7f"
-dependencies = [
- "approx",
- "arrayvec",
- "bitflags 2.6.0",
- "downcast-rs",
- "either",
- "log",
- "nalgebra 0.33.0",
- "num-derive",
- "num-traits",
- "ordered-float",
- "rustc-hash 2.0.0",
- "simba 0.9.0",
- "slab",
- "smallvec",
- "spade",
- "thiserror",
 ]
 
 [[package]]
@@ -5445,12 +5387,12 @@ dependencies = [
  "bitflags 1.3.2",
  "downcast-rs",
  "either",
- "nalgebra 0.32.6",
+ "nalgebra",
  "num-derive",
  "num-traits",
  "rayon",
- "rustc-hash 1.1.0",
- "simba 0.8.1",
+ "rustc-hash",
+ "simba",
  "slab",
  "smallvec",
  "spade",
@@ -5924,12 +5866,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 
 [[package]]
-name = "rustc-hash"
-version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "583034fd73374156e66797ed8e5b0d5690409c9226b22d87cb7f19821c05d152"
-
-[[package]]
 name = "rustc_version"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6095,19 +6031,6 @@ name = "simba"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "061507c94fc6ab4ba1c9a0305018408e312e17c041eb63bef8aa726fa33aceae"
-dependencies = [
- "approx",
- "num-complex",
- "num-traits",
- "paste",
- "wide",
-]
-
-[[package]]
-name = "simba"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b3a386a501cd104797982c15ae17aafe8b9261315b5d07e3ec803f2ea26be0fa"
 dependencies = [
  "approx",
  "num-complex",
@@ -7119,7 +7042,7 @@ dependencies = [
  "parking_lot 0.12.3",
  "profiling",
  "raw-window-handle 0.6.2",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "smallvec",
  "thiserror",
  "web-sys",
@@ -7146,7 +7069,7 @@ dependencies = [
  "parking_lot 0.12.3",
  "profiling",
  "raw-window-handle 0.6.2",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "smallvec",
  "thiserror",
  "web-sys",
@@ -7190,7 +7113,7 @@ dependencies = [
  "range-alloc",
  "raw-window-handle 0.6.2",
  "renderdoc-sys",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "smallvec",
  "thiserror",
  "wasm-bindgen",
@@ -7235,7 +7158,7 @@ dependencies = [
  "range-alloc",
  "raw-window-handle 0.6.2",
  "renderdoc-sys",
- "rustc-hash 1.1.0",
+ "rustc-hash",
  "smallvec",
  "thiserror",
  "wasm-bindgen",
