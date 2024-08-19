@@ -1,4 +1,4 @@
-use bevh::prelude::*;
+use bevy::prelude::*;
 use bevy_gltf_blueprints::{BlueprintsPlugin, GltfFormat};
 use bevy_registry_export::ExportRegistryPlugin;
 

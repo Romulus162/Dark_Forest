@@ -2,7 +2,7 @@ use bevy::{animation::AnimationPlayer, prelude::*};
 use bevy_gltf_blueprints::{AnimationPlayerLink, Animations};
 use bevy_mod_sysfail::prelude::*;
 use bevy_tnua::{
-    builtins::TnuaBuildinWalk, controller::TnuaController, TnuaAnimatingState,
+    builtins::TnuaBuiltinWalk, controller::TnuaController, TnuaAnimatingState,
     TnuaAnimatingStateDirective,
 };
 use std::time::Duration;

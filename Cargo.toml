@@ -5,6 +5,22 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = ["dev"]
+dev = [
+    "dep:bevy_editor_pls",
+    "bevy/file_watcher",
+    "bevy/dynamic_linking",
+    "oxidized_navigation/debug_draw",
+]
+tracing = ["bevy/trace_chrome"]
+
+[dependencies.bevy]
+version = "0.13.2"
+features = [
+    "jpeg",
+]
+
 [dependencies]
 # keep the following two in sync with Bevy's dependencies
 ## https://github.com/bevyengine/bevy/blob/v0.13.1/crates/bevy_winit/Cargo.toml#L32
@@ -12,8 +28,6 @@ winit = { version = "0.29", default-features = false }
 ## https://github.com/bevyengine/bevy/blob/v0.13.1/crates/bevy_render/Cargo.toml#L61
 image = { version = "0.24", default-features = false }
 
-bevy = "0.13.2"
-bevy_egui = "0.27.0"
 
 #generic dependency
 serde = { version = "1.0.203", features = ["derive"] }
@@ -21,18 +35,26 @@ anyhow = "1.0.86"
 
 #Bevy plugins
 bevy_xpbd_3d = { version = "0.4.2", features = ["simd"] }
+bevy_egui = "0.27.0"
 bevy_mod_sysfail = "7.0.0"
 bevy_editor_pls = { version = "0.8.1", optional = true }
 bevy_yarnspinner_example_dialogue_view = "0.3.0"
 bevy_yarnspinner = "0.3.1"
 leafwing-input-manager = { version = "0.13.3", features = ["egui"] }
 bevy_dolly = "0.0.4"
+bevy-tnua-xpbd3d = "0.2"
 bevy-tnua = "0.19.0"
 bevy_hanabi = "0.12.2"
 bevy_asset_loader = "0.21.0"
 bevy_common_assets = { version = "0.11.0", features = ["ron", "toml"] }
 bevy_kira_audio = "0.20.0"
 iyes_progress = "0.12.0"
+oxidized_navigation = "0.11.0"
+bevy_gltf_blueprints = "0.11.0"
+bevy_registry_export = "0.4.0"
+
+[build-dependencies]
+embed-resource = "2"
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]
