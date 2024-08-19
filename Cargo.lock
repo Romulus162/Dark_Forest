@@ -897,8 +897,7 @@ dependencies = [
 [[package]]
 name = "bevy_hanabi"
 version = "0.11.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "871ca056b92c79a3e3143851622df2816e6e5f462dbf568fdfc9a2048b9b49b0"
+source = "git+https://github.com/djeedai/bevy_hanabi/?rev=b9a98bdf51be07f8127d2f16b68f1eb86259242f#b9a98bdf51be07f8127d2f16b68f1eb86259242f"
 dependencies = [
  "anyhow",
  "bevy",
@@ -1442,8 +1441,7 @@ dependencies = [
 [[package]]
 name = "bevy_yarnspinner"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b31a28cad3a545ebcac1347e107e06c6bc81228841fe1b60d94db82c6e6d31ad"
+source = "git+https://github.com/YarnSpinnerTool/YarnSpinner-Rust.git?rev=c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30#c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30"
 dependencies = [
  "anyhow",
  "bevy",
@@ -1458,8 +1456,7 @@ dependencies = [
 [[package]]
 name = "bevy_yarnspinner_example_dialogue_view"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "79ef048b716e03413534048f307310d39783659755bceb4b7f9f8360c1c67581"
+source = "git+https://github.com/YarnSpinnerTool/YarnSpinner-Rust.git?rev=c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30#c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30"
 dependencies = [
  "bevy",
  "bevy_yarnspinner",
@@ -2078,6 +2075,7 @@ dependencies = [
  "image 0.24.9",
  "iyes_progress",
  "leafwing-input-manager",
+ "log",
  "oxidized_navigation",
  "serde",
  "warbler_grass",
@@ -2157,7 +2155,7 @@ version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "de78e66ac9061e030587b2a2e75cc88f22304913c907b11307bca737141230cb"
 dependencies = [
- "heck 0.4.1",
+ "heck",
  "proc-macro-error",
 ]
 
@@ -2812,12 +2810,6 @@ name = "heck"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "95505c38b4572b2d910cecb0281560f54b440a19336cbbcb27bf6ce6adc6f5a8"
-
-[[package]]
-name = "heck"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea"
 
 [[package]]
 name = "hermit-abi"
@@ -4499,12 +4491,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "rustversion"
-version = "1.0.17"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "955d28af4278de8121b7ebeb796b6a45735dc01436d898801014aced2773a3d6"
-
-[[package]]
 name = "ruzstd"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4720,25 +4706,6 @@ name = "static_assertions"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
-
-[[package]]
-name = "strum"
-version = "0.26.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8fec0f0aef304996cf250b31b5a10dee7980c85da9d759361292b8bca5a18f06"
-
-[[package]]
-name = "strum_macros"
-version = "0.26.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4c6bee85a5a24955dc440386795aa378cd9cf82acd5f764469152d2270e581be"
-dependencies = [
- "heck 0.5.0",
- "proc-macro2",
- "quote",
- "rustversion",
- "syn 2.0.75",
-]
 
 [[package]]
 name = "svg_fmt"
@@ -6055,8 +6022,7 @@ checksum = "539a77ee7c0de333dcc6da69b177380a0b81e0dacfa4f7344c465a36871ee601"
 [[package]]
 name = "yarnspinner"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d39473a37f93e84dadb0be4c3df88d7a614e90df98bb852b847c7624e6794e38"
+source = "git+https://github.com/YarnSpinnerTool/YarnSpinner-Rust.git?rev=c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30#c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30"
 dependencies = [
  "log",
  "yarnspinner_compiler",
@@ -6067,8 +6033,7 @@ dependencies = [
 [[package]]
 name = "yarnspinner_compiler"
 version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d9f57c0f8d0754b98c83dbd25b69c0015755486428d9726aefe84324a5d235a"
+source = "git+https://github.com/YarnSpinnerTool/YarnSpinner-Rust.git?rev=c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30#c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30"
 dependencies = [
  "annotate-snippets",
  "antlr-rust",
@@ -6078,34 +6043,24 @@ dependencies = [
  "rand",
  "regex",
  "serde",
- "strum",
- "strum_macros",
- "thiserror",
  "yarnspinner_core",
 ]
 
 [[package]]
 name = "yarnspinner_core"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3fe49910e13e0254e50201a80fb450e5d6382feee3b09c44bb3914d32e356600"
+source = "git+https://github.com/YarnSpinnerTool/YarnSpinner-Rust.git?rev=c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30#c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30"
 dependencies = [
  "bevy",
- "bytes",
- "paste",
  "prost",
  "serde",
- "strum",
- "strum_macros",
- "thiserror",
  "yarnspinner_macros",
 ]
 
 [[package]]
 name = "yarnspinner_macros"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c8ae8c98bd97e554fe9a4c593a1438492611d93a0b92075467984167cd896b30"
+source = "git+https://github.com/YarnSpinnerTool/YarnSpinner-Rust.git?rev=c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30#c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -6115,8 +6070,7 @@ dependencies = [
 [[package]]
 name = "yarnspinner_runtime"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dcc42ff1081804df3e43f238076294223d77266dbe99adaf835b5907a3b1b6a4"
+source = "git+https://github.com/YarnSpinnerTool/YarnSpinner-Rust.git?rev=c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30#c6ab0c9e8c3a5a98f741aaae6adef1cfc272db30"
 dependencies = [
  "bevy",
  "fixed_decimal",
@@ -6126,7 +6080,6 @@ dependencies = [
  "once_cell",
  "regex",
  "serde",
- "thiserror",
  "unicode-normalization",
  "unicode-segmentation",
  "yarnspinner_core",
@@ -6228,3 +6181,8 @@ checksum = "73ab332fe2f6680068f3582b16a24f90ad7096d5d39b974d1c0aff0125116f02"
 dependencies = [
  "simd-adler32",
 ]
+
+[[patch.unused]]
+name = "egui_dock"
+version = "0.11.3"
+source = "git+https://github.com/bash/egui_dock.git?branch=backport-syn-update#212e94d65ee2265dd6e097a5592ebf5d1736660e"
