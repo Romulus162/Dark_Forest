@@ -1,6 +1,6 @@
-use crate::{movement::physics::CollisionLayer, GamerState};
+use crate::{movement::physics::CollisionLayer, GameState};
 use anyhow::Context;
-use bevy::{prelude::*, transform::TransformSystem::TransformPropogate};
+use bevy::{prelude::*, transform::TransformSystem::TransformPropagate};
 use bevy_mod_sysfail::prelude::*;
 use bevy_xpbd_3d::prelude::{Collider as XpbdCollider, *};
 use oxidized_navigation::NavMeshAffector;

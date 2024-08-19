@@ -52,6 +52,8 @@ iyes_progress = "0.12.0"
 oxidized_navigation = "0.11.0"
 bevy_gltf_blueprints = "0.11.0"
 bevy_registry_export = "0.4.0"
+warbler_grass = "0.6.1"
+bevy_atmosphere = "0.10.0"
 
 [build-dependencies]
 embed-resource = "2"
