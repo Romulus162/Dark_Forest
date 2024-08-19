@@ -1,6 +1,7 @@
+use crate::system_set::GameSystemSet;
+use crate::util::error;
 use bevy::{animation::AnimationPlayer, prelude::*};
 use bevy_gltf_blueprints::{AnimationPlayerLink, Animations};
-use bevy_mod_sysfail::prelude::*;
 use bevy_tnua::{
     builtins::TnuaBuiltinWalk, controller::TnuaController, TnuaAnimatingState,
     TnuaAnimatingStateDirective,
@@ -8,8 +9,12 @@ use bevy_tnua::{
 use std::time::Duration;
 
 pub(super) fn plugin(app: &mut App) {
-    app.register_type::<CharacterAnimationNames>()
-        .add_systems(Update, play_animations);
+    app.register_type::<CharacterAnimationNames>().add_systems(
+        Update,
+        play_animations
+            .pipe(error)
+            .in_set(GameSystemSet::PlayAnimation),
+    );
 }
 
 /// Managed by [`play_animations`]
@@ -29,19 +34,18 @@ struct CharacterAnimationNames {
     aerial: String,
 }
 
-#[sysfail(Log<anyhow::Error, Error>)]
 fn play_animations(
     mut query: Query<(
         Entity,
         &mut TnuaAnimatingState<AnimationState>,
         &TnuaController,
-        &AnimationPlayer,
+        &AnimationPlayerLink,
         &Animations,
     )>,
     children: Query<&Children>,
     animation_names: Query<&CharacterAnimationNames>,
     mut animation_players: Query<&mut AnimationPlayer>,
-) {
+) -> anyhow::Result<()> {
     #[cfg(feature = "tracing")]
     let _span = info_span!("play_animations").entered();
     for (entity, mut animating_state, controller, link, animations) in query.iter_mut() {
@@ -75,10 +79,10 @@ fn play_animations(
                 }
             }
             TnuaAnimatingStateDirective::Alter {
-                // We don't need the old state here, but its available for transition
-                // animaitons.
+                // We don't need the old state here, but it's available for transition
+                // animations.
                 old_state: _,
-                state
+                state,
             } => match state {
                 AnimationState::Airborne | AnimationState::Running(..) => {
                     animation_player
@@ -93,7 +97,7 @@ fn play_animations(
                         .repeat();
                 }
                 AnimationState::Standing => {
-                    animaiton_player
+                    animation_player
                         .play_with_transition(
                             animations
                                 .named_animations
@@ -119,4 +123,5 @@ fn play_animations(
             },
         }
     }
+    Ok(())
 }
