@@ -23,7 +23,7 @@ fn setup_shader(
     mut glow_materials: ResMut<Assets<GlowyMaterial>>,
     texture_assets: Res<TextureAssets>,
 ) {
-    let glow = glow_materials.add(GlowyMaterial {
+    let glowy = glow_materials.add(GlowyMaterial {
         env_texture: texture_assets.glowy_interior.clone(),
     });
 
@@ -32,7 +32,6 @@ fn setup_shader(
 
 #[derive(AsBindGroup, Debug, Clone, Asset, TypePath)]
 /// Material for [`glowy.wgsl`](https://github.com/janhohenheim/foxtrot/blob/main/assets/shaders/glowy.wgsl).
-// the above is subject to change, keep in mind this part of the process is simply reverse engineering as to get something working first
 pub(crate) struct GlowyMaterial {
     #[texture(0)]
     #[sampler(1)]

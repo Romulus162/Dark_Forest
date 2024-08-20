@@ -1,9 +1,9 @@
-use crate::player_control::{actions::ActionsFrozen, camera::IngameCamera};
+use crate::player_control::actions::ActionsFrozen;
+use crate::GameSystemSet;
 use bevy::prelude::*;
 use bevy_egui::EguiPlugin;
 use bevy_yarnspinner::{events::DialogueCompleteEvent, prelude::*};
-use bevy_yarnspinner_example_dialogue_view::{prelude::*, UiRootNode};
-use leafwing_input_manager::plugin::InputManagerSystem;
+use bevy_yarnspinner_example_dialogue_view::prelude::*;
 use serde::{Deserialize, Serialize};
 
 pub(super) fn plugin(app: &mut App) {
@@ -16,10 +16,9 @@ pub(super) fn plugin(app: &mut App) {
         Update,
         (
             spawn_dialogue_runner.run_if(resource_added::<YarnProject>),
-            unfreeze_after_dialog.after(InputManagerSystem::ManualControl),
-            set_ui_target_camera,
+            unfreeze_after_dialog.in_set(GameSystemSet::Dialog),
         )
-            .after(ExampleYarnSpinnerDialogueViewSystemSet),
+            .chain(),
     )
     .init_resource::<CurrentDialogTarget>()
     .register_type::<YarnNode>()
@@ -44,24 +43,10 @@ fn spawn_dialogue_runner(mut commands: Commands, project: Res<YarnProject>) {
 fn unfreeze_after_dialog(
     mut dialogue_complete_event: EventReader<DialogueCompleteEvent>,
     mut dialog_target: ResMut<CurrentDialogTarget>,
-    mut freeaze: ResMut<ActionsFrozen>,
+    mut freeze: ResMut<ActionsFrozen>,
 ) {
     for _event in dialogue_complete_event.read() {
         dialog_target.0 = None;
         freeze.unfreeze();
-    }
-}
-
-fn set_ui_target_camera(
-    mut commands: Commands,
-    root_ui_node: Query<Entity, (With<UiRootNode>, Without<TargetCamera>)>,
-    main_camera: Query<Entity, With<IngameCamera>>,
-) {
-    for camera_entity in main_camera.iter() {
-        for node_entity in root_ui_node.iter() {
-            commands
-                .entity(node_entity)
-                .insert(TargetCamera(camera_entity));
-        }
     }
 }
